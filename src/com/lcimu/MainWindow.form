@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.lcimu.MainWindow">
+  <grid id="27dc6" binding="outPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="504" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="empty"/>
+    <children>
+      <grid id="985c4" layout-manager="GridLayoutManager" row-count="11" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="100" bottom="5" right="40"/>
+        <constraints border-constraint="Center"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <vspacer id="a1101">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <vspacer id="aacbd">
+            <constraints>
+              <grid row="9" column="0" row-span="1" col-span="3" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <component id="28e37" class="javax.swing.JTextField" binding="userNameField" custom-create="true">
+            <constraints>
+              <grid row="4" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+                <maximum-size width="240" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <toolTipText value="Input UserName"/>
+            </properties>
+          </component>
+          <component id="33cc2" class="javax.swing.JPasswordField" binding="passwordField" custom-create="true">
+            <constraints>
+              <grid row="6" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <minimum-size width="240" height="-1"/>
+                <preferred-size width="150" height="-1"/>
+                <maximum-size width="240" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <toolTipText value="Input Password"/>
+            </properties>
+          </component>
+          <grid id="6c2ca" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+            <constraints>
+              <grid row="8" column="0" row-span="1" col-span="4" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="4dcbb" class="javax.swing.JButton" binding="signInButton" custom-create="true" default-binding="true">
+                <constraints/>
+                <properties>
+                  <text value="Sign In"/>
+                </properties>
+              </component>
+              <hspacer id="61414">
+                <constraints/>
+              </hspacer>
+              <component id="a5d73" class="javax.swing.JButton" binding="cancelButton" custom-create="true" default-binding="true">
+                <constraints/>
+                <properties>
+                  <background color="-14871273"/>
+                  <font name="Microsoft YaHei"/>
+                  <text value="Cancel"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <vspacer id="172bd">
+            <constraints>
+              <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <vspacer id="77e0e">
+            <constraints>
+              <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <grid id="a8941" binding="labelPanel" custom-create="true" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="5097b" class="javax.swing.JLabel" binding="lcIMUUserSignLabel" custom-create="true">
+                <constraints border-constraint="Center"/>
+                <properties>
+                  <text value="LCIMU User Sign In"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <vspacer id="f08d1">
+            <constraints>
+              <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <component id="2435e" class="javax.swing.JSeparator">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="3" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+          </component>
+          <grid id="dd573" binding="registerPanel" custom-create="true" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints>
+              <grid row="10" column="2" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <toolTipText value="Click to create you account"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="8008" class="javax.swing.JButton" binding="signUpButton" custom-create="true" default-binding="true">
+                <constraints border-constraint="East"/>
+                <properties>
+                  <text value="Sign Up ?"/>
+                  <toolTipText value="Create a new account"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <component id="ac18b" class="javax.swing.JLabel" binding="userNameLabel" custom-create="true">
+            <constraints>
+              <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="UserName"/>
+            </properties>
+          </component>
+          <component id="600d6" class="javax.swing.JLabel" binding="passwordLabel" custom-create="true">
+            <constraints>
+              <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Password"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <hspacer id="b56c5">
+        <constraints border-constraint="East"/>
+      </hspacer>
+      <hspacer id="cbd31">
+        <constraints border-constraint="West"/>
+      </hspacer>
+    </children>
+  </grid>
+</form>
