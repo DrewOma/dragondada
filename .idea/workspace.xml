@@ -2,35 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b74f8797-b4ec-4f46-b66a-629c579e2a52" name="Default" comment="Sorted Out The Test csv files">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LCIMU.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bicprunball02.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bicprunball03.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bicprunfree01.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bicprunfree02.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bicprunfree03.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bicpwalkinball02.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bicpwalkingball01.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bicpwalkingball03.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bicpwalkingfree01.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bicpwalkingfree02.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bicpwalkingfree03.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cyclingfree01.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/foracyclingbar01.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/foramcyclingfree01.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out_file_2017_04_21_06_55_31.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/runningball01.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/runningball02.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/runningball03.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/runningfree01.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/runningfree02.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/runningfree03.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/walkingball01.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/walkingball02.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/walkingball03.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/walkingfree01.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/walkingfree02.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/walkingfree03.csv" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/lcimu/Account.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/lcimu/AccountParser.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/lcimu/MainWindow.form" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/lcimu/MainWindow.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/lcimu/graphStyles.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/lcimu/sensor/CanvasGraph.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/lcimu/sensor/DataItem.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/lcimu/sensor/SerialLogger.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -70,8 +49,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="51">
-                <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <first_editor relative-caret-position="272">
+                <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -242,6 +221,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="dragondada" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dragondada" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dragondada" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LCIMU" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -614,6 +607,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -626,7 +620,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890365" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33551556" sideWeight="0.49092284" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33551556" sideWeight="0.49092284" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2708018" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1064,8 +1058,8 @@
       </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="51">
-            <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <first_editor relative-caret-position="272">
+            <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
             <folding />
           </first_editor>
           <second_editor />
