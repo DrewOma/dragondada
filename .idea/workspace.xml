@@ -1,16 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b74f8797-b4ec-4f46-b66a-629c579e2a52" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LCIMU/src/com/lcimu/sensor/CanvasGraph.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LCIMU/src/com/lcimu/sensor/CanvasGraphAccelGyro.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LCIMU/src/com/lcimu/sensor/DataItem.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LCIMU/src/com/lcimu/sensor/SerialLogger.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+    <list default="true" id="b74f8797-b4ec-4f46-b66a-629c579e2a52" name="Default" comment="The Updated LCIMU application">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/intellij/uiDesigner/core/AbstractLayout.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/intellij/uiDesigner/core/DimensionInfo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/intellij/uiDesigner/core/GridConstraints.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/intellij/uiDesigner/core/GridLayoutManager.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/intellij/uiDesigner/core/HorizontalInfo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/intellij/uiDesigner/core/LayoutState.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/intellij/uiDesigner/core/Spacer.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/intellij/uiDesigner/core/SupportCode.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/intellij/uiDesigner/core/Util.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/intellij/uiDesigner/core/VerticalInfo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/lcimu/Account.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/lcimu/AccountParser.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/lcimu/IMUContainer$1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/lcimu/IMUContainer$2.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/lcimu/IMUContainer$3.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/lcimu/IMUContainer$4.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/lcimu/IMUContainer$5.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/lcimu/IMUContainer$6.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/lcimu/IMUContainer.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/lcimu/MainWindow$1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/lcimu/MainWindow$2.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/lcimu/MainWindow$3.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/lcimu/MainWindow$4.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/lcimu/MainWindow$5.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/lcimu/MainWindow.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/lcimu/sensor/CanvasGraph$1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/lcimu/sensor/CanvasGraph$2.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/lcimu/sensor/CanvasGraph$3.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/lcimu/sensor/CanvasGraph.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/lcimu/sensor/CanvasGraphAccelGyro$1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/lcimu/sensor/CanvasGraphAccelGyro$2.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/lcimu/sensor/CanvasGraphAccelGyro$3.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/lcimu/sensor/CanvasGraphAccelGyro.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/lcimu/sensor/DataItem.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/lcimu/sensor/SerialLogger$1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/lcimu/sensor/SerialLogger.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/lcimu/test/AccountParserTest.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/lcimu/test/AccountTest.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/lcimu/test/CanvasGraphAccelGyroTest.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/lcimu/test/CanvasGraphTest.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/lcimu/test/IMUContainerTest.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/lcimu/test/MainWindowTest.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/LCIMU (2)/com/lcimu/test/SerialLoggerTest.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LCIMU/.idea/kotlinc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LCIMU/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LCIMU/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LCIMU/.idea/uiDesigner.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LCIMU/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/profile/accounts.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/profile/admin/2017_04_29_01_03_10.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/profile/admin/2017_04_29_01_44_35.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/profile/admin/2017_04_29_01_46_26.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/profile/admin/2017_04_29_08_15_46.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/profile/admin/2017_05_02_10_08_33.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/profile/admin/2017_05_02_10_41_15.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/profile/admin/2017_05_02_10_44_41.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/profile/admin/2017_05_02_10_51_27.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/profile/admin/2017_05_02_10_54_15.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/profile/admin/2017_05_02_10_59_01.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/profile/admin/2017_05_02_11_10_05.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/profile/admin/2017_05_02_11_40_41.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/profile/admin/2017_05_03_01_13_20.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/profile/bamboo/2017_05_02_08_21_01.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/profile/congo/2017_04_29_05_55_12.csv" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bicpcyclingbar01(40rpm).csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bicprunball01.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bicprunball02.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bicprunball03.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bicprunfree01.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bicprunfree02.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bicprunfree03.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bicpwalkinball02.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bicpwalkingball01.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bicpwalkingball03.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bicpwalkingfree01.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bicpwalkingfree02.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bicpwalkingfree03.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cyclingfree01.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/foracyclingbar01.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/foramcyclingfree01.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out_file_2017_04_21_06_55_31.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/runningball01.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/runningball02.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/runningball03.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/runningfree01.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/runningfree02.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/runningfree03.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/walkingball01.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/walkingball02.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/walkingball03.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/walkingfree01.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/walkingfree02.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/walkingfree03.csv" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
@@ -243,69 +328,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="libs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dragondada" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dragondada" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LCIMU" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dragondada" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dragondada" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LCIMU" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lcimu" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dragondada" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dragondada" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LCIMU" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lcimu" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sensor" />
+              <option name="myItemId" value="Z_User_Manual" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -695,7 +718,21 @@
       <option name="project" value="LOCAL" />
       <updated>1493782785794</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="The Updated LCIMU application">
+      <created>1493798119563</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1493798119563</updated>
+    </task>
+    <task id="LOCAL-00005" summary="The Updated LCIMU application">
+      <created>1493798489316</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1493798489316</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1102,6 +1139,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="79" lean-forward="false" selection-start-line="10" selection-start-column="79" selection-end-line="10" selection-end-column="79" />
+          <folding />
         </state>
       </provider>
     </entry>
