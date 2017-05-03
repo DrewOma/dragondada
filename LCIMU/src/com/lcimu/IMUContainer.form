@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.lcimu.IMUContainer">
+  <grid id="27dc6" binding="outPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="799" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="fa803" binding="btnPanel" custom-create="true" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="North"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <grid id="2ab17" binding="labelPanel" custom-create="true" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints border-constraint="Center"/>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="98bbb" class="javax.swing.JLabel" binding="welcomeLabel" custom-create="true">
+                <constraints border-constraint="South"/>
+                <properties>
+                  <font name="MV Boli" size="20" style="1"/>
+                  <text value="Welcome to the LCIMU Application  "/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="6bcb1" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+            <constraints border-constraint="East"/>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="68d58" class="javax.swing.JButton" binding="startBtn" custom-create="true">
+                <constraints/>
+                <properties>
+                  <horizontalAlignment value="2"/>
+                  <text value="Start"/>
+                </properties>
+              </component>
+              <hspacer id="c762e">
+                <constraints/>
+              </hspacer>
+              <component id="32e43" class="javax.swing.JButton" binding="stopButton" custom-create="true" default-binding="true">
+                <constraints/>
+                <properties>
+                  <text value="Stop"/>
+                </properties>
+              </component>
+              <hspacer id="2d0e4">
+                <constraints/>
+              </hspacer>
+              <component id="75007" class="javax.swing.JButton" binding="logOutButton" custom-create="true" default-binding="true">
+                <constraints/>
+                <properties>
+                  <text value="Log Out"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </grid>
+      <grid id="b450d" binding="canvasPanel" custom-create="true" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="Center"/>
+        <properties/>
+        <border type="line"/>
+        <children>
+          <scrollpane id="ae5ba">
+            <constraints border-constraint="First"/>
+            <properties>
+              <horizontalScrollBarPolicy value="32"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="92059" class="javax.swing.JTable" binding="dataTable" custom-create="true">
+                <constraints/>
+                <properties/>
+              </component>
+            </children>
+          </scrollpane>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
