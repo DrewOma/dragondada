@@ -2,7 +2,7 @@ The LCIMU application is configured to implement the capture of inertial motion 
 
 It captures Time, Linear and Angular Acceleration, Quaternion variables and Pitch,Yaw, Roll, Phi, Theta,Psi angles
 
-and will display the some data in real time.
+and will display some of the data in real time.
 
 The DataCaptured Folder contains data that has been captured during multiple actvities and stored in a csv file
 
