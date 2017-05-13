@@ -1,0 +1,257 @@
+uint8_t dataBuffer[111]; //Add 1 for Null terminator
+uint8_t incomBuffer1[39];  //A buffer to hold data from Serial port 1
+uint8_t incomBuffer2[39];  //A buffer to hold data from Serial port 2
+uint8_t incomBuffer3[39];  // A buffer to hold data from Serial port 3
+
+void setup() {
+Serial.begin(115200);      //Initialize Serial
+Serial1.begin(115200);     //Initialize Serial 1
+Serial2.begin(115200);     //Initialize Serial 2
+Serial3.begin(115200);     //Initialize Serial 3
+pinMode(5, OUTPUT);        // set pin 5 to high to assess the sampling rate using the Logic Analyser
+//delay(10);  
+}
+void loop() { 
+dataBuffer[0] = '@';    // The Starter bytes
+dataBuffer[1] = '_';    
+dataBuffer[2] = '@';    
+grumble(); 
+humble();
+bumble();
+Serial.write(dataBuffer, sizeof(dataBuffer));   //send the buffered data through the USB terminal
+delay(1);             
+}
+
+//This method would handle data reception and wrapping from Serial port 1
+void grumble(){
+  establishUno();    //request for data from the first IMU device
+while (Serial1.available()) {  //did the data arrive
+  for (int i = 0; i < 39; i++){
+    incomBuffer1[i] = Serial1.read();
+  }
+              if(incomBuffer1[0] == '$'){
+                  if(incomBuffer1[1] == '_'){
+                     if(incomBuffer1[2] == '$'){
+              int32_t bytOne = (incomBuffer1[3] << 24)| (incomBuffer1[4] << 16) | (incomBuffer1[5] << 8) | incomBuffer1[6];
+              int16_t rollOne = incomBuffer1[7] << 8 | incomBuffer1[8];
+              int16_t pitchOne = incomBuffer1[9] << 8 | incomBuffer1[10];
+              int16_t yawOne = incomBuffer1[11] << 8 | incomBuffer1[12];
+              int16_t psiOne =incomBuffer1[13] << 8 | incomBuffer1[14];
+              int16_t thetaOne =incomBuffer1[15] << 8 | incomBuffer1[16]; 
+              int16_t phiOne =incomBuffer1[17] << 8 | incomBuffer1[18]; 
+              uint16_t axOne = incomBuffer1[19] << 8 | incomBuffer1[20];
+              int16_t ayOne = incomBuffer1[21] << 8 | incomBuffer1[22];
+              int16_t azOne = incomBuffer1[23] << 8 | incomBuffer1[24];
+              int16_t gxOne =incomBuffer1[25] << 8 | incomBuffer1[26];
+              int16_t gyOne =incomBuffer1[27] << 8 | incomBuffer1[28]; 
+              int16_t gzOne =incomBuffer1[29] << 8 | incomBuffer1[30];
+              int16_t qwOne = incomBuffer1[31] << 8 | incomBuffer1[32];
+              int16_t qxOne =incomBuffer1[33] << 8 | incomBuffer1[34];
+              int16_t qyOne =incomBuffer1[35] << 8 | incomBuffer1[36]; 
+              int16_t qzOne =incomBuffer1[37] << 8 | incomBuffer1[38]; 
+            
+              dataBuffer[3] = (uint8_t)((bytOne >> 24) & 0xFF);
+              dataBuffer[4] = (uint8_t)((bytOne >> 16) & 0xFF);
+              dataBuffer[5] = (uint8_t)((bytOne >> 8) & 0xFF);
+              dataBuffer[6] =(uint8_t)( bytOne & 0xFF);
+              dataBuffer[7] = (uint8_t)(rollOne >> 8)& 0xFF;
+              dataBuffer[8] = (uint8_t)(rollOne & 0xFF);
+              dataBuffer[9] = (uint8_t)(pitchOne >> 8)& 0xFF;
+              dataBuffer[10] = (uint8_t)(pitchOne & 0xFF);
+              dataBuffer[11] = (uint8_t)(yawOne >> 8)& 0xFF;
+              dataBuffer[12] = (uint8_t)(yawOne & 0xFF);
+              dataBuffer[13] = (uint8_t)(psiOne >> 8)& 0xFF;
+              dataBuffer[14] = (uint8_t)(psiOne & 0xFF);
+              dataBuffer[15] = (uint8_t)(thetaOne  >>8)& 0xFF;
+              dataBuffer[16] = (uint8_t)(thetaOne & 0xFF);
+              dataBuffer[17] = (uint8_t)(phiOne >> 8)& 0xFF;
+              dataBuffer[18] = (uint8_t)(phiOne & 0xFF); 
+              dataBuffer[19] = (uint8_t)(axOne >> 8);
+              dataBuffer[20] = (uint8_t)(axOne );
+              dataBuffer[21] = (uint8_t)(ayOne >> 8);
+              dataBuffer[22] = (uint8_t)(ayOne);
+              dataBuffer[23] = (uint8_t)(azOne >> 8);
+              dataBuffer[24] = (uint8_t)(azOne);
+              dataBuffer[25] = (uint8_t)(gxOne >> 8)& 0xFF;
+              dataBuffer[26] = (uint8_t)(gxOne & 0xFF);
+              dataBuffer[27] = (uint8_t)(gyOne  >> 8)& 0xFF;
+              dataBuffer[28] = (uint8_t)(gyOne & 0xFF);
+              dataBuffer[29] = (uint8_t)(gzOne >> 8)& 0xFF;
+              dataBuffer[30] = (uint8_t)(gzOne & 0xFF); 
+              dataBuffer[31] = (uint8_t)(qwOne >> 8)& 0xFF;
+              dataBuffer[32] = (uint8_t)(qwOne & 0xFF);
+              dataBuffer[33] = (uint8_t)(qxOne >> 8)& 0xFF;
+              dataBuffer[34] = (uint8_t)(qxOne & 0xFF);  
+              dataBuffer[35] = (uint8_t)(qyOne >> 8)& 0xFF;
+              dataBuffer[36] = (uint8_t)(qyOne & 0xFF); 
+              dataBuffer[37] = (uint8_t)(qzOne >> 8)& 0xFF;
+              dataBuffer[38] = (uint8_t)(qzOne & 0xFF); 
+                     }
+                  }
+              }
+          }
+          delayMicroseconds(500);
+}
+
+//This method would handle data reception and wrapping from Serial port 2
+void humble(){
+establishDeux();  // request for data from the second LCIMU device
+while (Serial2.available()) {  //check if data is available on Serial 2
+     for (int i = 0; i < 39; i++){
+    incomBuffer2[i] = Serial2.read();
+  }
+              if(incomBuffer2[0] == '$'){
+                    if(incomBuffer2[1] == '_'){
+                          if(incomBuffer2[2] == '$'){
+              int32_t bytTwo = (incomBuffer2[3] << 24)| (incomBuffer2[4] << 16) | (incomBuffer2[5] << 8) | incomBuffer2[6]; 
+              int16_t rollTwo = incomBuffer2[7] << 8 | incomBuffer2[8];
+              int16_t pitchTwo = incomBuffer2[9] << 8 | incomBuffer2[10];
+              int16_t yawTwo = incomBuffer2[11] << 8 | incomBuffer2[12];
+              int16_t psiTwo =incomBuffer2[13] << 8 | incomBuffer2[14];
+              int16_t thetaTwo =incomBuffer2[15] << 8 | incomBuffer2[16]; 
+              int16_t phiTwo =incomBuffer2[17] << 8 | incomBuffer2[18];
+              uint16_t axTwo = incomBuffer2[19] << 8 | incomBuffer2[20];
+              int16_t ayTwo = incomBuffer2[21] << 8 | incomBuffer2[22];
+              int16_t azTwo = incomBuffer2[23] << 8 | incomBuffer2[24];
+              int16_t gxTwo =incomBuffer2[25] << 8 | incomBuffer2[26];
+              int16_t gyTwo =incomBuffer2[27] << 8 | incomBuffer2[28]; 
+              int16_t gzTwo =incomBuffer2[29] << 8 | incomBuffer2[30];
+              int16_t qwTwo = incomBuffer2[31] << 8 | incomBuffer2[32];
+              int16_t qxTwo =incomBuffer2[33] << 8 | incomBuffer2[34];
+              int16_t qyTwo =incomBuffer2[35] << 8 | incomBuffer2[36]; 
+              int16_t qzTwo =incomBuffer2[37] << 8 | incomBuffer2[38]; 
+              
+         
+                dataBuffer[39] = (uint8_t)(bytTwo >> 24) & 0xFF;
+                dataBuffer[40] = (uint8_t)(bytTwo >> 16) & 0xFF;
+                dataBuffer[41] = (uint8_t)(bytTwo >> 8) & 0xFF;
+                dataBuffer[42] = (uint8_t)(bytTwo & 0xFF);
+                dataBuffer[43] = (uint8_t)(rollTwo >> 8)& 0xFF;
+                dataBuffer[44] = (uint8_t)(rollTwo & 0xFF);
+                dataBuffer[45] = (uint8_t)(pitchTwo >> 8)& 0xFF;
+                dataBuffer[46]= (uint8_t)(pitchTwo & 0xFF);
+                dataBuffer[47] = (uint8_t)(yawTwo >> 8)& 0xFF;
+                dataBuffer[48] = (uint8_t)(yawTwo & 0xFF);
+                dataBuffer[49] = (uint8_t)(psiTwo >> 8)& 0xFF;
+                dataBuffer[50] = (uint8_t)(psiTwo & 0xFF);
+                dataBuffer[51] = (uint8_t)(thetaTwo >> 8)& 0xFF;
+                dataBuffer[52] = (uint8_t)(thetaTwo & 0xFF);
+                dataBuffer[53] = (uint8_t)(phiTwo >> 8)& 0xFF;
+                dataBuffer[54] = (uint8_t)(phiTwo & 0xFF);  
+                dataBuffer[55] = (uint8_t)(axTwo >> 8)& 0xFF;
+                dataBuffer[56] = (uint8_t)(axTwo & 0xFF);
+                dataBuffer[57] = (uint8_t)(ayTwo >> 8)& 0xFF;
+                dataBuffer[58] = (uint8_t)(ayTwo & 0xFF);
+                dataBuffer[59] = (uint8_t)(azTwo >> 8)& 0xFF;
+                dataBuffer[60] = (uint8_t)(azTwo & 0xFF);
+                dataBuffer[61] = (uint8_t)(gxTwo >> 8)& 0xFF;
+                dataBuffer[62] = (uint8_t)(gxTwo & 0xFF);
+                dataBuffer[63] = (uint8_t)(gyTwo  >> 8)& 0xFF;
+                dataBuffer[64] = (uint8_t)(gyTwo & 0xFF);
+                dataBuffer[65] = (uint8_t)(gzTwo >> 8)& 0xFF;
+                dataBuffer[66] = (uint8_t)(gzTwo & 0xFF); 
+                dataBuffer[67] = (uint8_t)(qwTwo >> 8)& 0xFF;
+                dataBuffer[68] = (uint8_t)(qwTwo & 0xFF); 
+                dataBuffer[69] = (uint8_t)(qxTwo >> 8)& 0xFF;
+                dataBuffer[70] = (uint8_t)(qxTwo & 0xFF); 
+                dataBuffer[71] = (uint8_t)(qyTwo >> 8)& 0xFF;
+                dataBuffer[72] = (uint8_t)(qyTwo & 0xFF); 
+                dataBuffer[73] = (uint8_t)(qzTwo >> 8)& 0xFF;
+                dataBuffer[74] = (uint8_t)(qzTwo & 0xFF); 
+                          }
+                    }
+              }           
+       }
+       delay(7);
+}
+
+//This method would handle data reception and wrapping from Serial port 3
+void bumble(){
+    establishTrois(); //request for data from the third LCIMU device
+while (Serial3.available()) {  // is data available on Serial 3
+     for (int i = 0; i < 39; i++){
+    incomBuffer3[i] = Serial3.read();
+     }
+              if(incomBuffer3[0] == '$'){
+                       if(incomBuffer3[1] == '_'){
+                             if(incomBuffer3[2] == '$'){
+              int32_t bytThree = (incomBuffer3[3] << 24)| (incomBuffer3[4] << 16) | (incomBuffer3[5] << 8) | incomBuffer3[6];
+              int16_t rollThree = incomBuffer3[7] << 8 | incomBuffer3[8];
+              int16_t pitchThree = incomBuffer3[9] << 8 | incomBuffer3[10];
+              int16_t yawThree = incomBuffer3[11] << 8 | incomBuffer3[12];
+              int16_t psiThree =incomBuffer3[13] << 8 | incomBuffer3[14];
+              int16_t thetaThree =incomBuffer3[15] << 8 | incomBuffer3[16]; 
+              int16_t phiThree =incomBuffer3[17] << 8 | incomBuffer3[18];
+              int16_t axThree = incomBuffer3[19] << 8 | incomBuffer3[20];
+              int16_t ayThree = incomBuffer3[21] << 8 | incomBuffer3[22];
+              int16_t azThree = incomBuffer3[23] << 8 | incomBuffer3[24];
+              int16_t gxThree =incomBuffer3[25] << 8 | incomBuffer3[26];
+              int16_t gyThree =incomBuffer3[27] << 8 | incomBuffer3[28]; 
+              int16_t gzThree =incomBuffer3[29] << 8 | incomBuffer3[30];
+              int16_t qwThree = incomBuffer3[31] << 8 | incomBuffer3[32];
+              int16_t qxThree =incomBuffer3[33] << 8 | incomBuffer3[34];
+              int16_t qyThree =incomBuffer3[35] << 8 | incomBuffer3[36]; 
+              int16_t qzThree =incomBuffer3[37] << 8 | incomBuffer3[38]; 
+             
+                dataBuffer[75] = (uint8_t)(bytThree >> 24) & 0xFF;
+                dataBuffer[76] = (uint8_t)(bytThree >> 16) & 0xFF;
+                dataBuffer[77] = (uint8_t)(bytThree >> 8) & 0xFF;
+                dataBuffer[78] = (uint8_t)(bytThree & 0xFF);
+                dataBuffer[79] = (uint8_t)(rollThree >> 8)& 0xFF;
+                dataBuffer[80] = (uint8_t)(rollThree & 0xFF);
+                dataBuffer[81] = (uint8_t)(pitchThree>> 8)& 0xFF;
+                dataBuffer[82] = (uint8_t)(pitchThree & 0xFF);
+                dataBuffer[83] = (uint8_t)(yawThree >> 8)& 0xFF;
+                dataBuffer[84] = (uint8_t)(yawThree & 0xFF);
+                dataBuffer[85] = (uint8_t)(psiThree >> 8)& 0xFF;
+                dataBuffer[86] = (uint8_t)(psiThree & 0xFF);
+                dataBuffer[87] = (uint8_t)(thetaThree >> 8)& 0xFF;
+                dataBuffer[88] = (uint8_t)(thetaThree & 0xFF);
+                dataBuffer[89] = (uint8_t)(phiThree >> 8)& 0xFF;
+                dataBuffer[90] = (uint8_t)(phiThree & 0xFF);  
+                dataBuffer[91] = (uint8_t)(axThree >> 8)& 0xFF;
+                dataBuffer[92] = (uint8_t)(axThree & 0xFF);
+                dataBuffer[93] = (uint8_t)(ayThree >> 8)& 0xFF;
+                dataBuffer[94] = (uint8_t)(ayThree & 0xFF);
+                dataBuffer[95] = (uint8_t)(azThree >> 8)& 0xFF;
+                dataBuffer[96] = (uint8_t)(azThree & 0xFF);
+                dataBuffer[97] = (uint8_t)(gxThree >> 8)& 0xFF;
+                dataBuffer[98] = (uint8_t)(gxThree & 0xFF);
+                dataBuffer[99] = (uint8_t)(gyThree  >> 8)& 0xFF;
+                dataBuffer[100] = (uint8_t)(gyThree & 0xFF);
+                dataBuffer[101] = (uint8_t)(gzThree >> 8)& 0xFF;
+                dataBuffer[102] = (uint8_t)(gzThree & 0xFF); 
+                dataBuffer[103] = (uint8_t)(qwThree >> 8)& 0xFF;
+                dataBuffer[104] = (uint8_t)(qwThree & 0xFF); 
+                dataBuffer[105] = (uint8_t)(qxThree >> 8)& 0xFF;
+                dataBuffer[106] = (uint8_t)(qxThree & 0xFF); 
+                dataBuffer[107] = (uint8_t)(qyThree >> 8)& 0xFF;
+                dataBuffer[108] = (uint8_t)(qyThree & 0xFF); 
+                dataBuffer[109] = (uint8_t)(qzThree >> 8)& 0xFF;
+                dataBuffer[110] = (uint8_t)(qzThree & 0xFF); 
+                
+                             }
+                       }
+              }  
+      }
+    delay(7); 
+    }    
+
+
+//A call method to IMU 1 to request data
+ void establishUno(){
+  Serial1.write('k');
+    
+}
+//A call method to IMU 2 to request data
+ void establishDeux(){
+Serial2.write('q');
+
+}
+
+//A call method to IMU 3 to request data
+void establishTrois(){
+Serial3.write('p');
+
+} 
+

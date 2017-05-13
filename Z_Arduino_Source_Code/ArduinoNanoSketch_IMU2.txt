@@ -1,0 +1,260 @@
+// I2C device class (I2Cdev) demonstration Arduino sketch for //MPU6050 class using DMP (MotionApps v2.0)
+// 6/21/2012 by Jeff Rowberg <jeff@rowberg.net>
+// Updates should (hopefully) always be available at https://github.com/jrowberg/i2cdevlib
+#include "I2Cdev.h"
+#include "MPU6050_6Axis_MotionApps20.h"
+#include "MPU6050.h" // not necessary if using MotionApps include file
+//#include <Wire.h>
+// Arduino Wire library is required if I2Cdev I2CDEV_ARDUINO_WIRE implementation
+// is used in I2Cdev.h
+#if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
+    #include "Wire.h"
+#endif
+
+#define OUTPUT_DATA
+bool blinkState = false;
+bool dmpReady = false;  // set true if DMP init was successful
+uint8_t mpuIntStatus;   // holds actual interrupt status byte from MPU
+uint8_t devStatus;      // return status after each device operation (0 = success, !0 = error)
+uint16_t packetSize;    // expected DMP packet size (default is 42 bytes)
+uint16_t fifoCount;     // count of all bytes currently in FIFO
+uint8_t fifoBuffer[64]; // FIFO storage buffer
+int16_t ax, ay, az;
+int16_t gx, gy, gz;
+int16_t zw, zx, zy,zz;
+int16_t ex, ey, ez;
+int16_t bx, by, bz;
+uint32_t tm;
+MPU6050 mpu;
+// packet structure for InvenSense teapot demo
+uint8_t PitchPacket[39];
+uint8_t pitchBuffer[39];
+// orientation/motion vars
+Quaternion q;           // [w, x, y, z]         quaternion container
+VectorInt16 aa;         // [x, y, z]            accel sensor measurements
+VectorInt16 aaReal;     // [x, y, z]            gravity-free accel sensor measurements
+VectorInt16 aaWorld;    // [x, y, z]            world-frame accel sensor measurements
+VectorFloat gravity;    // [x, y, z]            gravity vector
+float euler[3];         // [psi, theta, phi]    Euler angle container
+float ypr[3];           // [yaw, pitch, roll]   yaw/pitch/roll container and gravity vector
+MPU6050 accelgyro;
+
+// ================================================================
+// ===               INTERRUPT DETECTION ROUTINE                ===
+// ================================================================
+
+volatile bool mpuInterrupt = false;     // indicates whether MPU interrupt pin has gone high
+void dmpDataReady() {
+    mpuInterrupt = true;
+}
+void setup() {
+    // join I2C bus (I2Cdev library doesn't do this automatically)
+    #if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
+        Wire.begin();
+        TWBR = 24; // 400kHz I2C clock (200kHz if CPU is 8MHz)
+    #elif I2CDEV_IMPLEMENTATION == I2CDEV_BUILTIN_FASTWIRE
+        Fastwire::setup(400, true);
+    #endif
+
+    // initialize serial communication
+    // (115200 chosen because it is required for Teapot Demo output, but it's
+    // really up to you depending on your project)
+    Serial.begin(115200);
+    while (!Serial); // wait for Leonardo enumeration, others continue immediately
+
+    // initialize device
+    Serial.println(F("Initializing I2C devices..."));
+    mpu.initialize();
+
+    // verify connection
+    Serial.println(F("Testing device connections..."));
+    Serial.println(mpu.testConnection() ? F("MPU6050 connection successful") : F("MPU6050 connection failed"));
+
+    // load and configure the DMP
+    Serial.println(F("Initializing DMP..."));
+    devStatus = mpu.dmpInitialize();
+
+    // supply your own gyro offsets here, scaled for min sensitivity
+    mpu.setXGyroOffset(220);
+    mpu.setYGyroOffset(76);
+    mpu.setZGyroOffset(-85);
+    mpu.setZAccelOffset(1788); // 1688 factory default for my test chip
+
+    // make sure it worked (returns 0 if so)
+    if (devStatus == 0) {
+        // turn on the DMP, now that it's ready
+        Serial.println(F("Enabling DMP..."));
+        mpu.setDMPEnabled(true);
+
+        // enable Arduino interrupt detection
+        Serial.println(F("Enabling interrupt detection (Arduino external interrupt 0)..."));
+        attachInterrupt(0, dmpDataReady, RISING);
+        mpuIntStatus = mpu.getIntStatus();
+
+        // set our DMP Ready flag so the main loop() function knows it's okay to use it
+        Serial.println(F("DMP ready! Waiting for first interrupt..."));
+        dmpReady = true;
+
+        // get expected DMP packet size for later comparison
+        packetSize = mpu.dmpGetFIFOPacketSize();
+    } else {
+        // ERROR!
+        // 1 = initial memory load failed
+        // 2 = DMP configuration updates failed
+        // (if it's going to break, usually the code will be 1)
+        Serial.print(F("DMP Initialization failed (code "));
+        Serial.print(devStatus);
+        Serial.println(F(")"));
+    }
+
+}
+
+
+
+// ================================================================
+// ===                    MAIN PROGRAM LOOP                     ===
+// ================================================================
+
+void loop() {
+   // Serial.print("Bingo");
+    // if programming failed, don't try to do anything
+    if (!dmpReady) return;
+
+//    // wait for MPU interrupt or extra packet(s) available
+//    while (!mpuInterrupt && fifoCount < packetSize) {
+//    }
+     accelgyro.getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
+    // reset interrupt flag and get INT_STATUS byte
+    mpuInterrupt = false;
+    mpuIntStatus = mpu.getIntStatus();
+
+    // get current FIFO count
+    fifoCount = mpu.getFIFOCount();
+
+     tm = micros();
+    // check for overflow (this should never happen unless our code is too inefficient)
+    if ((mpuIntStatus & 0x10) || fifoCount == 1024) {
+        // reset so we can continue cleanly
+        mpu.resetFIFO();
+        Serial.println(F("FIFO overflow!"));
+
+    // otherwise, check for DMP data ready interrupt (this should happen frequently)
+    } 
+    else if (mpuIntStatus & 0x02) {
+        // wait for correct available data length, should be a VERY short wait
+        while (fifoCount < packetSize) fifoCount = mpu.getFIFOCount();
+
+        // read a packet from FIFO
+        mpu.getFIFOBytes(fifoBuffer, packetSize);
+        
+        // track FIFO count here in case there is > 1 packet available
+        // (this lets us immediately read more without waiting for an interrupt)
+        fifoCount -= packetSize;
+        
+       #ifdef OUTPUT_DATA
+            mpu.dmpGetQuaternion(&q, fifoBuffer);
+            mpu.dmpGetAccel(&aa, fifoBuffer);
+            mpu.dmpGetGravity(&gravity, &q);
+            mpu.dmpGetLinearAccel(&aaReal, &aa, &gravity);
+            mpu.dmpGetQuaternion(&q, fifoBuffer);
+            mpu.dmpGetYawPitchRoll(ypr, &q, &gravity);
+            zw = q.w; 
+            zx = q.x;
+            zy = q.y;
+            zz = q.z;
+            ex = euler[0];
+            ey = euler[1];
+            ez = euler[2];
+            bx = ypr[0];
+            by = ypr[1];
+            bz = ypr[2];
+            if (Serial.available()){//check if Data is available
+                char command = Serial.read();
+                 switch(command){
+                 case 'q':
+                       pitchBuffer[0] = '$';
+                       pitchBuffer[1] ='_';
+                       pitchBuffer[2] ='$';
+                       pitchBuffer[3] = (uint8_t)((tm >> 24) & 0xFF);
+                       pitchBuffer[4] = (uint8_t)((tm >> 16) & 0xFF);
+                       pitchBuffer[5] = (uint8_t)((tm >> 8) & 0xFF);
+                       pitchBuffer[6] = (uint8_t)( tm & 0xFF);
+                       pitchBuffer[7] = (uint8_t)(bz >> 8)& 0xFF; //roll
+                       pitchBuffer[8] = (uint8_t)(bz & 0xFF);
+                       pitchBuffer[9] = (uint8_t)(by >> 8)& 0xFF;//pitch
+                       pitchBuffer[10] = (uint8_t)(by & 0xFF);
+                       pitchBuffer[11] = (uint8_t)(bx >> 8)& 0xFF;//yaw
+                       pitchBuffer[12] = (uint8_t)(bx & 0xFF);
+                       pitchBuffer[13] = (uint8_t)(ex >> 8)& 0xFF;  //psi
+                       pitchBuffer[14] = (uint8_t)(ex & 0xFF);
+                       pitchBuffer[15] = (uint8_t)(ey >> 8)& 0xFF;  //theta
+                       pitchBuffer[16] = (uint8_t)(ey & 0xFF);
+                       pitchBuffer[17] = (uint8_t)(ez >> 8)& 0xFF;  //phi
+                       pitchBuffer[18] = (uint8_t)(ez & 0xFF);
+                       pitchBuffer[19] = (uint8_t)(aa.x >> 8)& 0xFF;
+                       pitchBuffer[20] = (uint8_t)(aa.x & 0xFF);
+                       pitchBuffer[21] = (uint8_t)(aa.y >> 8)& 0xFF;
+                       pitchBuffer[22] = (uint8_t)(aa.y & 0xFF);
+                       pitchBuffer[23] = (uint8_t)(aa.z >> 8)& 0xFF;
+                       pitchBuffer[24] = (uint8_t)(aa.z & 0xFF);
+                       pitchBuffer[25] = (uint8_t)(gx >> 8)& 0xFF;
+                       pitchBuffer[26] = (uint8_t)(gx & 0xFF);
+                       pitchBuffer[27] = (uint8_t)(gy >> 8)& 0xFF;
+                       pitchBuffer[28] = (uint8_t)(gy & 0xFF);
+                       pitchBuffer[29] = (uint8_t)(gz >> 8)& 0xFF;
+                       pitchBuffer[30] = (uint8_t)(gz & 0xFF);
+                       pitchBuffer[31] = (zw >> 8)& 0xFF;
+                       pitchBuffer[32] = (zw & 0xFF);
+                       pitchBuffer[33] = (zx >> 8)& 0xFF;
+                       pitchBuffer[34] = (zx & 0xFF);
+                       pitchBuffer[35] = (zy >> 8)& 0xFF;
+                       pitchBuffer[36] = (zy & 0xFF);
+                       pitchBuffer[37] = (zz >> 8)& 0xFF;
+                       pitchBuffer[38] = (zz & 0xFF);
+                       PitchPacket[0] = pitchBuffer[0];
+                       PitchPacket[1] = pitchBuffer[1];
+                       PitchPacket[2] = pitchBuffer[2];
+                       PitchPacket[3] = pitchBuffer[3];
+                       PitchPacket[4] = pitchBuffer[4];
+                       PitchPacket[5] = pitchBuffer[5];
+                       PitchPacket[6] = pitchBuffer[6];
+                       PitchPacket[7] = pitchBuffer[7];
+                       PitchPacket[8] = pitchBuffer[8];
+                       PitchPacket[9] = pitchBuffer[9];
+                       PitchPacket[10] = pitchBuffer[10];
+                       PitchPacket[11] = pitchBuffer[11];
+                       PitchPacket[12] = pitchBuffer[12];
+                       PitchPacket[13] = pitchBuffer[13];
+                       PitchPacket[14] = pitchBuffer[14];
+                       PitchPacket[15] = pitchBuffer[15];
+                       PitchPacket[16] = pitchBuffer[16];
+                       PitchPacket[17] = pitchBuffer[17];
+                       PitchPacket[18] = pitchBuffer[18];
+                       PitchPacket[19] = pitchBuffer[19];
+                       PitchPacket[20] = pitchBuffer[20];
+                       PitchPacket[21] = pitchBuffer[21];
+                       PitchPacket[22] = pitchBuffer[22];
+                       PitchPacket[23] = pitchBuffer[23];
+                       PitchPacket[24] = pitchBuffer[24];
+                       PitchPacket[25] = pitchBuffer[25];
+                       PitchPacket[26] = pitchBuffer[26];
+                       PitchPacket[27] = pitchBuffer[27];
+                       PitchPacket[28] = pitchBuffer[28];
+                       PitchPacket[29] = pitchBuffer[29];
+                       PitchPacket[30] = pitchBuffer[30];
+                       PitchPacket[31] = pitchBuffer[31];
+                       PitchPacket[32] = pitchBuffer[32];
+                       PitchPacket[33] = pitchBuffer[33];
+                       PitchPacket[34] = pitchBuffer[34];
+                       PitchPacket[35] = pitchBuffer[35];
+                       PitchPacket[36] = pitchBuffer[36];
+                       PitchPacket[37] = pitchBuffer[37];
+                       PitchPacket[38] = pitchBuffer[38];
+                       Serial.write(PitchPacket, sizeof(PitchPacket));  // send the data packet
+                  break;
+                  }
+               }
+         #endif
+      }
+      delay(1);
+   }
