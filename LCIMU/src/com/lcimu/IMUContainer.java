@@ -165,7 +165,7 @@ public class IMUContainer extends JFrame {
     /*
      * This method allows the User to
      * click the 'stop' button to
-      * terminate the application
+     * terminate the application
      */
     public void destroyCanvasGraph() {
         System.out.println("Stop The Data Display");
