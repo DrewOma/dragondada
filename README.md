@@ -4,7 +4,7 @@ It captures Time, Linear and Angular Acceleration, Quaternion variables and Pitc
 
 and will display some of the data in real time.
 
-The DataCaptured Folder contains data that has been captured during multiple actvities and stored in a csv file
+The Z_gitDataCaptured Folder contains data that has been captured during multiple actvities and stored in a csv file
 
 The Z_Design Documentation Folder contains the design documentation for this project in pdf format.
 
