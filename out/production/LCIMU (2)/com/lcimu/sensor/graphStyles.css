@@ -1,0 +1,27 @@
+
+
+
+
+#ecgchart .default-color0.chart-area-symbol { -fx-background-color: #e9967a, #ffa07a; }
+#ecgchart .default-color1.chart-area-symbol { -fx-background-color: #f0e68c, #fffacd; }
+#ecgchart .default-color2.chart-area-symbol { -fx-background-color: #dda0dd, #d8bfd8; }
+
+#ecgchart .default-color0.chart-series-area-line { -fx-stroke: #ff0000; }
+#ecgchart .default-color1.chart-series-area-line { -fx-stroke: #f0e68c; }
+#ecgchart .default-color2.chart-series-area-line { -fx-stroke: #dda0dd; }
+
+#ecgchart .default-color0.chart-series-area-fill { -fx-fill: #ffc0cb}
+#ecgchart .default-color1.chart-series-area-fill { -fx-fill: #fffacd77; }
+#ecgchart .default-color2.chart-series-area-fill { -fx-fill: #d8bfd833; }
+
+#axchart .default-color0.chart-area-symbol { -fx-background-color: #e9967a, #ffa07a; }
+#axchart .default-color0.chart-series-area-line { -fx-stroke: #006400; }
+#axchart .default-color0.chart-series-area-fill { -fx-fill: #90ee90}
+
+#aychart .default-color0.chart-area-symbol { -fx-background-color: #e9967a, #ffa07a; }
+#aychart .default-color0.chart-series-area-line { -fx-stroke: #0000cd; }
+#aychart .default-color0.chart-series-area-fill { -fx-fill: #add8e6}
+
+#aychart .default-color0.chart-area-symbol { -fx-background-color: #e9967a, #ffa07a; }
+#aychart .default-color0.chart-series-area-line { -fx-stroke: #ff8c00; }
+#aychart .default-color0.chart-series-area-fill { -fx-fill: #ffefd5}
