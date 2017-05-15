@@ -5,7 +5,6 @@ package com.lcimu;
  */
 
 import com.lcimu.sensor.CanvasGraph;
-import com.lcimu.sensor.CanvasGraphAccelGyro;
 import org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper;
 import org.jb2011.lnf.beautyeye.ch3_button.BEButtonUI;
 
@@ -151,14 +150,9 @@ public class IMUContainer extends JFrame {
         datas = new Vector<DataItem>();
         SwingUtilities.invokeLater(new Runnable() {// wait until the call to run as being executed before updating the thread
             @Override
-            //Comment this section to switch canvas display
             public void run() {
                 CanvasGraph.getInstance().initAndShowUI();
             }
-            //Uncomment this section to switch canvas display
-//            public void run() {
-//                CanvasGraphAccelGyro.getInstance().initAndShowUI();
-//            }
         });
     }
 
@@ -169,8 +163,7 @@ public class IMUContainer extends JFrame {
      */
     public void destroyCanvasGraph() {
         System.out.println("Stop The Data Display");
-        CanvasGraph container = CanvasGraph.getInstance();  //comment to switch display
-        // CanvasGraphAccelGyro container = CanvasGraphAccelGyro.getInstance();  //uncomment to switch display
+        CanvasGraph container = CanvasGraph.getInstance();
         container.dispose();
         container.stop();
 
@@ -243,11 +236,6 @@ public class IMUContainer extends JFrame {
         try {
             dataTable = new JTable(tm);
             dataTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-//            CsvParser csvParser = new CsvParser("bicprunfree01.csv");
-//            csvParser.parseToTableData();
-//
-//            datas.addAll(csvParser.getDatas());
-//            tm.fireTableStructureChanged();
         } catch (Exception e) {
             e.printStackTrace();
         }

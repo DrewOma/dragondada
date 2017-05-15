@@ -40,7 +40,6 @@ public class DataItem {
     private int qxtwo_val = 0;// Initialize the x-axis quaternion variable of the second sensor
     private int qytwo_val = 0;// Initialize the y-axis quaternion variable of the second sensor
     private int qztwo_val = 0;// Initialize the z-axis quaternion variable of the second sensor
-    //private int time_valll;
     private float rollthree_val = 0; // Initialize the roll variable of the third sensor
     private float pitchthree_val = 0;// Initialize the pitch variable of the third sensor
     private float yawthree_val = 0;// Initialize the yaw variable of the third sensor

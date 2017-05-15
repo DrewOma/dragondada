@@ -405,7 +405,6 @@ public class SerialLogger implements Runnable, SerialPortEventListener {
                                     int qzthree_val = ((dataB_2 & 0xFF) | dataB_1 << 8);
                                     //System.out.println(qzthree_val);
 
-                                    //this.dataQ.add(new DataItem(time_val, rollone_val, pitchone_val, yawone_val, psione_val, thetaone_val, phione_val, axone_val, ayone_val, azone_val, gxone_val, gyone_val, gzone_val,qwone_val, qxone_val,qyone_val, qzone_val, time_vall, rolltwo_val, pitchtwo_val, yawtwo_val, psitwo_val, thetatwo_val, phitwo_val,axtwo_val, aytwo_val, aztwo_val, gxtwo_val, gytwo_val, gztwo_val, qwtwo_val, qxtwo_val, qytwo_val, qztwo_val, time_valll, rollthree_val, pitchthree_val, yawthree_val, psithree_val, thetathree_val, phithree_val,axthree_val, aythree_val, azthree_val, gxthree_val, gythree_val, gzthree_val, qwthree_val, qxthree_val, qythree_val, qzthree_val));
                                     this.dataQ.add(new DataItem(time_val, rollone_val, pitchone_val, yawone_val, psione_val, thetaone_val, phione_val, axone_val, ayone_val, azone_val, gxone_val, gyone_val, gzone_val, qwone_val, qxone_val, qyone_val, qzone_val, rolltwo_val, pitchtwo_val, yawtwo_val, psitwo_val, thetatwo_val, phitwo_val, axtwo_val, aytwo_val, aztwo_val, gxtwo_val, gytwo_val, gztwo_val, qwtwo_val, qxtwo_val, qytwo_val, qztwo_val, rollthree_val, pitchthree_val, yawthree_val, psithree_val, thetathree_val, phithree_val, axthree_val, aythree_val, azthree_val, gxthree_val, gythree_val, gzthree_val, qwthree_val, qxthree_val, qythree_val, qzthree_val));
 
                                     DataItem item = new DataItem(time_val, rollone_val, pitchone_val, yawone_val, psione_val, thetaone_val, phione_val, axone_val, ayone_val, azone_val, gxone_val, gyone_val, gzone_val, qwone_val, qxone_val, qyone_val, qzone_val, rolltwo_val, pitchtwo_val, yawtwo_val, psitwo_val, thetatwo_val, phitwo_val, axtwo_val, aytwo_val, aztwo_val, gxtwo_val, gytwo_val, gztwo_val, qwtwo_val, qxtwo_val, qytwo_val, qztwo_val, rollthree_val, pitchthree_val, yawthree_val, psithree_val, thetathree_val, phithree_val, axthree_val, aythree_val, azthree_val, gxthree_val, gythree_val, gzthree_val, qwthree_val, qxthree_val, qythree_val, qzthree_val);
@@ -457,9 +456,6 @@ public class SerialLogger implements Runnable, SerialPortEventListener {
      */
     @Override
     public void run() {
-        /*try {
-            //Thread.sleep(20000);
-        } catch (InterruptedException e) {System.out.println(e); }*/
     }
 
 }
