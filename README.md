@@ -5,8 +5,9 @@ The Low Cost Inertial Motion Unit (LCIMU) System comprises of both a hardware an
 The purpose of the system was to serve as an affordable alternative to the commercially expensive inertial motion capture
 system available today. This file contains documentation for building of the system (hardware and software) from the ground up.
 The LCIMU software application is configured to implement the capture of inertial motion data from the LCIMU hardware system.
-It captures Time, Linear and Angular Acceleration, Quaternion variables and Pitch,Yaw, Roll, Phi, Theta,Psi angles
-and will display some of the data in real time.
+The LCIMU hardware system samples and captures inertial data at a frequency of 64Hz(±1). The data captured by the hardware system 
+includes Time, Linear and Angular Acceleration, Quaternion variables and Pitch,Yaw, Roll, Phi, Theta and Psi angles. 
+The software application is configured to display some of the data in real time.
 
 ------------------------------------------------------------------------------------------------------------------------------------
 The Z_DataCaptured Folder contains data that has been captured during multiple actvities and stored in a csv file
