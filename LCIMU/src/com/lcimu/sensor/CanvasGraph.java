@@ -1,5 +1,8 @@
 package com.lcimu.sensor;
-
+/*
+ * This sketch was modified from that
+ * developed my Mitchell Welch, 2015
+ */
 import com.lcimu.MainWindow;
 import gnu.io.CommPortIdentifier;
 import javafx.animation.AnimationTimer;

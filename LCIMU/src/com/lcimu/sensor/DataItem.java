@@ -1,6 +1,9 @@
 package com.lcimu.sensor;
 
 /**
+ * This sketch was modified from that
+ * developed my Mitchell Welch, 2015
+
  * The DataItem class will be used to instantiate
  * all the incoming serial sensor data variables
  */
