@@ -31,7 +31,7 @@ The Z_Management_Documentation folder contains the management documentation of t
 The Z_Video_Presentation folder contains the visual presentation of the LCIMU project as well as the tutorials in .mp4/.m4V format.
 
 -----------------------------------------------------------------------------------------------------------------------------------
-The Structure of the Project is :
+The Structure of the LCIMU Intelli J application is :
 
 *.idea *
 
